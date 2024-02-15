@@ -3,11 +3,11 @@ Formulário de Emails
 
 Projeto criado com a intenção de coletar emails de usuários usando Javascript, Node.js e Docker.
 
-Pré-requisitos:
+Pré-requisitos -
 Docker;
 Docker Compose
 
-Configuração:
+Configuração -
 Clone o repositório:
 git clone URL_DO_REPOSITORIO
 
@@ -19,7 +19,7 @@ MYSQL_ROOT_PASSWORD=sua-senha
 MYSQL_PASSWORD=sua-senha
 DB_PASSWORD=sua-senha
 
-Execução:
+Execução -
 Inicie os contêineres Docker:
 docker-compose up
 
