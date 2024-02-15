@@ -1,0 +1,59 @@
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+#emailForm {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+#emailForm input,
+#emailForm textarea {
+  width: 300px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#emailForm button {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+}
+
+#emailForm button:hover {
+  background-color: #0056b3;
+}
+
+/* Estilos para a tabela */
+table {
+  width: 100%;
+  margin-top: 10px;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Estilos para as células da tabela */
+td,
+th {
+  padding: 8px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+/* Estilos para as células do cabeçalho da tabela */
+th {
+  background-color: #f2f2f2;
+  color: #333;
+}
