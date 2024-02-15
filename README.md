@@ -4,7 +4,7 @@ Formulário de Emails
 Projeto criado com a intenção de coletar emails de usuários usando Javascript, Node.js e Docker.
 
 Pré-requisitos:
-Docker
+Docker;
 Docker Compose
 
 Configuração:
