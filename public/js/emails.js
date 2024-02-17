@@ -1,6 +1,6 @@
 // Adiciona um evento de clique ao botão "Voltar" que redireciona para a página inicial
-document.getElementById('voltarButton').addEventListener('click', () => {
-  window.location.href = '/';
+document.getElementById("voltarButton").addEventListener("click", () => {
+  window.location.href = "/";
 });
 
 // Adiciona um evento que é disparado quando o DOM está completamente carregado
@@ -31,6 +31,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         tr.innerHTML = `
           <td>${email.id}</td>
           <td>${email.email}</td>
+          <td>${formatarData(email.created_at)}</td>
         `;
         tbody.appendChild(tr);
       });
@@ -40,3 +41,16 @@ document.addEventListener("DOMContentLoaded", async () => {
     Swal.fire("Erro!", "Ocorreu um erro ao recuperar os e-mails.", "error");
   }
 });
+
+// Função para formatar a data
+function formatarData(data) {
+  const dataObj = new Date(data);
+  return dataObj.toLocaleString("pt-BR", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+  });
+}
