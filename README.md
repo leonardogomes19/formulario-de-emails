@@ -1,7 +1,7 @@
 
 Formulário de Emails
 
-Projeto criado com a intenção de coletar emails de usuários usando Javascript, Node.js e Docker.
+Projeto criado com a intenção de coletar emails de usuários usando Javascript, Node.js, MySQL e Docker.
 
 Pré-requisitos -
 Docker;
@@ -20,14 +20,14 @@ Acesse o diretório do projeto:
 Instale as dependências do projeto:
 `npm install`
 
-Crie um arquivo .env no diretório raiz do seu projeto e defina as variáveis de ambiente necessárias para a sua aplicação. Por exemplo:
-`MYSQL_ROOT_PASSWORD=sua-senha
-MYSQL_PASSWORD=sua-senha
-DB_PASSWORD=sua-senha`
-
 Importe o arquivo `database.sql` no diretório raiz do projeto dentro do MySQL para criar o banco de dados `email_collection` e a tabela `emails`
 
 Execução -
+
+Para construir a imagem do contêiner Docker usando o Dockerfile, você pode usar o seguinte comando dentro 
+do diretório do projeto:
+`docker build -t nome-da-imagem . `
+
 Inicie os contêineres Docker:
 `docker-compose up`
 

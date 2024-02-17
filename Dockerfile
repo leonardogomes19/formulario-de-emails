@@ -1,5 +1,6 @@
-# Use a imagem oficial do Node.js
-FROM node:20.9.0
+# Use a imagem oficial do Node.js baseada em Alpine Linux, recomendada por ser uma 
+# distribuição Linux leve, pequena e eficiente. 
+FROM node:alpine
 
 # Crie um diretório de trabalho para a aplicação
 WORKDIR /usr/src/app

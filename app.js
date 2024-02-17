@@ -1,14 +1,28 @@
+// Importa o módulo path para trabalhar com caminhos de arquivos e diretórios
 const path = require("path");
+
+// Importa o módulo express para criar o servidor web
 const express = require("express");
+
+// Importa o módulo body-parser para analisar o corpo das solicitações HTTP
 const bodyParser = require("body-parser");
+
+// Importa o módulo mysql para se conectar ao banco de dados MySQL
 const mysql = require("mysql");
 
+// Cria uma instância do servidor express
 const app = express();
+
+// Define a porta em que o servidor irá ouvir
 const port = 3000;
 
+// Adiciona o middleware body-parser para analisar o corpo das solicitações HTTP
 app.use(bodyParser.json());
+
+// Define o diretório público para servir arquivos estáticos
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Cria uma conexão com o banco de dados MySQL
 const db = mysql.createConnection({
   host: "localhost",
   user: "root",
@@ -16,19 +30,23 @@ const db = mysql.createConnection({
   database: "email_collection",
 });
 
+// Estabelece a conexão com o banco de dados MySQL
 db.connect((err) => {
   if (err) throw err;
   console.log("Conectado ao banco de dados MySQL");
 });
 
+// Define a rota raiz que envia o arquivo index.html
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "public/html", "index.html"));
 });
 
+// Define a rota /emails.html que envia o arquivo emails.html
 app.get("/emails.html", (req, res) => {
   res.sendFile(path.join(__dirname, "public/html", "emails.html"));
 });
 
+// Define a rota /get-emails que recupera os e-mails do banco de dados
 app.get("/get-emails", (req, res) => {
   const sql = `SELECT * FROM emails`;
   db.query(sql, (err, result) => {
@@ -40,6 +58,7 @@ app.get("/get-emails", (req, res) => {
   });
 });
 
+// Define a rota /send-email que insere um novo e-mail no banco de dados
 app.post("/send-email", (req, res) => {
   const email = req.body.email;
   const sql = "INSERT INTO emails (email) VALUES (?)";
@@ -52,6 +71,7 @@ app.post("/send-email", (req, res) => {
   });
 });
 
+// Inicia o servidor express na porta especificada
 app.listen(port, () => {
   console.log(`App ouvindo em http://localhost:${port}`);
 });
