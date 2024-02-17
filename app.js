@@ -58,6 +58,23 @@ app.get("/get-emails", (req, res) => {
   });
 });
 
+// Define a rota /check-email que verifica se o e-mail já existe no banco de dados
+app.get("/check-email", (req, res) => {
+  const email = req.query.email;
+  const checkEmailSql = "SELECT * FROM emails WHERE email = ?";
+
+  // Verifica se o e-mail já existe no banco de dados
+  db.query(checkEmailSql, [email], (err, result) => {
+    if (err) {
+      res.status(500).send("Erro ao verificar e-mail");
+    } else if (result.length > 0) {
+      res.status(200).json({ exists: true });
+    } else {
+      res.status(200).json({ exists: false });
+    }
+  });
+});
+
 // Define a rota /send-email que insere um novo e-mail no banco de dados
 app.post("/send-email", (req, res) => {
   const email = req.body.email;
